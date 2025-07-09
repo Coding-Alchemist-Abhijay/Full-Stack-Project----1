@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+<form method="post" action="/Listings/<%= data._id %>?_method=PUT">
+    <div class="title_div">
+        <label for="title">Title:</label>
+        <input type="text" id="title" name="title" required value="<%= data.title %>">
+    </div>
+    <div class="description_div">
+        <label for="description">Description:</label>
+        <textarea id="description" name="description" rows="5" cols="10"><%= data.description %></textarea>
+    </div>
+    <div class="image_div">
+        <label for="image">Image URL:</label>
+        <input type="text" id="image" name="image[url]" value="<%= data.image.url %>">
+    </div>
+    <div class="price_div">
+        <label for="price">Price:</label>
+        <input type="number" id="price" name="price" step="0.01" value="<%= data.price %>">
+    </div>
+    <div class="location_div">
+        <label for="location">Location:</label>
+        <input type="text" id="location" name="location" value="<%= data.location %>">
+    </div>
+    <div class="country_div">
+        <label for="country">Country:</label>
+        <input type="text" id="country" name="country" value="<%= data.country %>">
+    </div>
+    <button type="submit">Update Listing</button>
+</form>
+</body>
+</html>
