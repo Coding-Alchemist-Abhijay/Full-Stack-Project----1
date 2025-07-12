@@ -1,0 +1,213 @@
+*{
+    padding : 0; 
+    margin : 0;
+    box-sizing : border-box;
+}
+body{
+    background-color:white;
+}
+.navbar{
+    background-color: white;
+    height: 5rem;
+    border: 1px solid black;
+}
+.navbar-brand{
+    color: #fe424d !important;
+    font-size: 2rem !important;
+}
+.nav-link{
+    color: #222222 !important;
+}
+.card_div{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    justify-content: space-around;
+    gap: 2rem;
+}
+.img_div {
+    height: 300px;
+    width: 350px;
+}   
+.img_div img {
+    width: 100%;
+    height: 100%;
+    display: block;
+}
+.title_div , .price_div {
+    font-family: "Montserrat", sans-serif;
+    font-weight: 400;
+    letter-spacing: 0.1px;
+}
+.img_div{
+    border: 1px solid black;
+    border-radius: 15px;
+}
+.img_div img{
+    object-fit:fill;
+    border-radius: 15px;
+}
+.card_anchor{
+    text-decoration: none;
+    color: #222222;
+}
+.img_div:hover{
+    opacity: 0.8;
+    cursor: pointer;
+}
+.title_div:hover{
+    text-decoration: underline;
+}
+.price_div:hover{
+    text-decoration: underline;
+}
+.form_div_1{
+    height: 500px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    gap:20px;
+    margin-left: 105px;
+}
+.form_div_2{
+    height: 500px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    gap:20px;
+    margin-left: 105px;
+}
+.new_Listing{
+    margin-left: 100px;
+    font-family: "Montserrat", sans-serif;
+    font-weight: 700;
+}
+.edit_Listing{
+    margin-left: 100px;
+    font-family: "Montserrat", sans-serif;
+    font-weight: 700;
+}
+.title_box, .description_box{
+    width: 800px;
+    font-family: "Montserrat", sans-serif;
+    letter-spacing: 0.1px;
+    border: 1px solid #222222;
+    border-radius: 4px;
+    padding-left: 10px;
+    font-size: smaller;
+    font-weight: 500;
+}
+.price_box{
+    width: 200px;
+    font-family: "Montserrat", sans-serif;
+    letter-spacing: 0.1px;
+    border: 1px solid #222222;
+    border-radius: 4px;
+    padding-left: 10px;
+    font-size: smaller;
+    font-weight: 500;
+}
+.location_box{
+    width:400px;
+    font-family: "Montserrat", sans-serif;
+    letter-spacing: 0.1px;
+    border: 1px solid #222222;
+    border-radius: 4px;
+    padding-left: 10px;
+    font-size: smaller;
+    font-weight: 500;
+}
+.image_box{
+    width:800px;
+    font-family: "Montserrat", sans-serif;
+    letter-spacing: 0.1px;
+    border: 1px solid #222222;
+    border-radius: 4px;
+    padding-left: 10px;
+    font-size: smaller;
+    font-weight: 500;
+}
+.country_box{
+    width:800px;
+    font-family: "Montserrat", sans-serif;
+    letter-spacing: 0.1px;
+    border: 1px solid #222222;
+    border-radius: 4px;
+    padding-left: 10px;
+    font-size: smaller;
+    font-weight: 500;
+}
+.form_div_1 span{
+    display: flex;
+    gap: 25px;
+}
+.form_div_2 span{
+    display: flex;
+    gap: 25px;
+}
+.form_div_1 button{
+    background-color: #fe424d;
+    border-radius: 10px;
+    border: 1px solid white;
+    width: 48px;
+    height: 30px;
+    color: white;
+    margin-top: 20px;
+}
+.form_div_2 button{
+    background-color: #fe424d;
+    border-radius: 10px;
+    border: 1px solid white;
+    width: 48px;
+    height: 30px;
+    color: white;
+    margin-top: 20px;
+}
+.new_title_div label, .new_description_div label, .new_image_div label, .new_price_div image, .new_location_div label, .new_country_div label{
+    font-family: "Montserrat", sans-serif;
+    font-weight: 600;
+}
+.read_div{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: start;
+    margin-left: 120px;
+    font-family: "Montserrat", sans-serif;
+    font-weight: 500;
+    gap:8px;
+}
+.show_image_div img {
+    height: 280px;
+    width: 880px;
+    object-fit: cover;
+    border-radius: 8px;
+    object-fit: cover;
+} 
+.read_div h1 {
+    place-self: start;  
+}
+.read_div .edit_button {
+    background-color:#fe424d;
+    border: 1px solid white;
+    border-radius: 10px;
+    color: white;
+    height : 32px;
+    width: 80px;
+}
+.read_div button {
+    background-color:#3c3737;
+    border: 1px solid white;
+    border-radius: 10px;
+    color: white;
+    height : 32px;
+    width: 80px;
+}
+.read_div span{
+    display: flex;
+    gap:10px;
+    margin-bottom: 20px;
+}

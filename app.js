@@ -4,10 +4,14 @@ const path = require('path');
 const mongoose = require('mongoose');
 const Listing = require('./models/listings.js');
 const methodOverride = require('method-override');
+const ejsMate = require('ejs-mate');
 
 app.use(express.urlencoded({extended: true}));
 app.use(express.json());
 app.use(methodOverride('_method'));
+app.engine('ejs', ejsMate);
+app.use(express.static(path.join(__dirname, 'public')));
+
 
 const MONGO_URL = "mongodb://127.0.0.1:27017/Wanderlust";
 
@@ -49,7 +53,6 @@ app.get("/Listings/:id/edit", async (req, res) => {
     let data = await Listing.findById(id);
     res.render("edit_page.ejs", { data });
 });
-
 app.put("/Listings/:id", async (req, res) => {
     let id = req.params.id;
     let updatedData = req.body;
@@ -61,6 +64,10 @@ app.delete("/Listings/:id", async (req, res) => {
     let id = req.params.id;
     await Listing.findByIdAndDelete(id);
     res.redirect("/Listings");
+});
+
+app.get("/", (req, res) => {
+    res.send("Welcome to the Listings App!");
 });
 
 app.listen(8080, () => {

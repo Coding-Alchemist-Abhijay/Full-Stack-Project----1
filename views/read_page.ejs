@@ -1,26 +1,24 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
+<% layout("/layouts/boilerplate") %>
 <body>
+    <div class="read_div">
     <h1>Listing details</h1>
-    <div class="title_div"><%= data.title %></div>
-    <div class="description_div"><%= data.description %></div>
-    <div class="image_div">
+    <div class="show_title_div"><%= data.title %></div>
+    <div class="show_description_div"><%= data.description %></div>
+    <div class="show_image_div">
         <img src="<%= data.image.url %>" alt="<%= data.title %>">
     </div>
-    <div class="price_div">Price: $<%= data.price.toLocaleString("en-IN") %></div>
-    <div class="location_div">Location: <%= data.location %></div>
-    <div class="country_div">Country: <%= data.country %></div>
-    <div class="edit_div">
-        <a href="/Listings/<%= data._id %>/edit">Edit Listing</a>
+    <div class="show_price_div">Price: $<%= data.price.toLocaleString("en-IN") %></div>
+    <div class="show_location_div">Location: <%= data.location %></div>
+    <div class="show_country_div">Country: <%= data.country %></div>
+    <div class="show_edit_div">
     </div>
-   <form method="POST" action="/Listings/<%= data._id %>?_method=DELETE">
-    <button type="submit">Delete This Listing</button>
-    </form>
-</form>
+    <span>
+        <a href="/Listings/<%= data._id %>/edit">
+            <button type="submit" class="edit_button">Edit</button>
+        </a>
+       <form method="POST" action="/Listings/<%= data._id %>?_method=DELETE">
+        <button type="submit">Delete</button>
+        </form>
+    </span>
+    </div>
 </body>
-</html>

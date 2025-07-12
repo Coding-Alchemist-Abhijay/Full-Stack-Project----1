@@ -1,37 +1,41 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
+<% layout("/layouts/boilerplate") %>
 <body>
-    <form method="post" action="http://localhost:8080/Listings">
-        <div class="title_div">
-            <label for="title">Title:</label>
-            <input type="text" id="title" name="title" required placeholder="Enter title">
-        </div>
-        <div class="description_div">
-            <label for="description">Description:</label>
-            <textarea id="description" name="description" rows="5" cols="10" placeholder="Enter description"></textarea>
-        </div>
-        <div class="image_div">
-            <label for="image">Image URL:</label>
-            <input type="text" id="image" name="image[url]" placeholder="Enter image URL">
-        </div>
-        <div class="price_div">
-            <label for="price">Price:</label>
-            <input type="number" id="price" name="price" step="0.01" placeholder="Enter price">
-        </div>
-        <div class="location_div">
-            <label for="location">Location:</label>
-            <input type="text" id="location" name="location" placeholder="Enter location">
-        </div>
-        <div class="country_div">
-            <label for="country">Country:</label>
-            <input type="text" id="country" name="country" placeholder="Enter country">
-        </div>
-        <button type="submit">Add Listing</button>
-    </form>
+    <h1 class="new_Listing">Create a new Listing</h1>
+        <form method="post" action="http://localhost:8080/Listings">
+            <div class="form_div_1">
+                <div class="new_title_div">
+                    <label for="title">Title:</label>
+                    <br>
+                    <input type="text" id="title" name="title" required placeholder="Enter title" class="title_box">
+                </div>
+                <div class="new_description_div">
+                    <label for="description">Description:</label>
+                    <br>
+                    <textarea id="description" name="description" rows="5" cols="10" placeholder="Enter description" class="description_box"></textarea>
+                </div>
+                <div class="new_image_div">
+                    <label for="image">Image URL:</label>
+                    <br>
+                    <input type="text" id="image" name="image[url]" placeholder="Enter image URL" class="image_box">
+                </div>
+                <span>
+                    <div class="new_price_div">
+                        <label for="price">Price:</label>
+                        <br>
+                        <input type="number" id="price" name="price" step="0.01" placeholder="Enter price" class="price_box">
+                    </div>
+                    <div class="new_location_div">
+                        <label for="location">Location:</label>
+                        <br>
+                        <input type="text" id="location" name="location" placeholder="Enter location" class="location_box">
+                    </div>
+                </span>
+                <div class="new_country_div">
+                    <label for="country">Country:</label>
+                    <br>
+                    <input type="text" id="country" name="country" placeholder="Enter country" class="country_box">
+                </div>
+                <button type="submit">Add</button>
+            </div>
+        </form>
 </body>
-</html>

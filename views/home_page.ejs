@@ -1,19 +1,20 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
+<% layout("/layouts/boilerplate") %>
 <body>
     <h1>All Listings</h1>
-    <form action="http://localhost:8080/Listings/new">
+    <!-- <form action="http://localhost:8080/Listings/new">
         <button>Create New Listing</button>
-    </form>
-    <% for(let user of data) { %>
-        <ul>
-            <li><a href = "/Listings/<%= user._id %>"><%= user.title %></a></li>
-        </ul>
-    <% } %>
+    </form> -->
+    <div class="card_div">
+        <% for(let user of data) { %>
+            <a class=card_anchor href="/Listings/<%= user._id %>">
+            <div class="each_card">
+                <div class="img_div">
+                    <img src="<%= user.image.url %>" alt="<%= user.image.filename %>">
+                </div>
+                <div class="title_div"><%= user.title %></div>
+                <div class="price_div">&#8377;<%= user.price.toLocaleString("en-IN") %> </div>
+            </div>
+            </a>
+        <% } %>
+    </div>
 </body>
-</html>

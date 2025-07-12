@@ -1,0 +1,23 @@
+footer{
+    height: 80px;
+    display: flex;
+    justify-content: space-between ;
+    border: 1px solid rgba(0, 0, 0, 0.251);
+    align-items: center;
+}
+.div_1{
+    display: flex;
+    gap:8px;
+    font-size: smaller;
+}
+.div_2{
+    display: flex;
+    gap: 10px;
+    font-size: smaller;
+}
+.div_1 div:hover{
+    text-decoration: underline;
+}
+.div_2 div:hover{
+    color:rgba(0, 0, 0, 0.531)
+}
