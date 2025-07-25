@@ -63,7 +63,7 @@ body{
     text-decoration: underline;
 }
 .form_div_1{
-    height: 500px;
+    min-height: 600px;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -72,7 +72,7 @@ body{
     margin-left: 105px;
 }
 .form_div_2{
-    height: 500px;
+    min-height: 600px;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -210,4 +210,67 @@ body{
     display: flex;
     gap:10px;
     margin-bottom: 20px;
+}
+.rating_div{
+    margin-left: 121px;
+    height: 480px;
+}
+.rating_div form{
+    display: flex;
+    flex-direction: column;
+    gap : 20px
+}
+.rating_div form button{
+    width: 80px;
+    text-align: center;
+    background-color: #10a6ecf7;
+}
+.rating_div form label {
+    font-family: "Montserrat", sans-serif;
+}
+.rating_div h1{
+    font-family: "Montserrat", sans-serif;
+    margin-bottom: 15px;
+}
+.reviews_div{
+    max-height: 2000px;
+    width: 100%;
+    display: flex;
+    gap : 40px;
+    margin-bottom: 100px;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+}
+.single_review{
+    height: 300px;
+    width: 340px;
+    display: flex;
+    flex-direction: column;
+    gap:10px;
+    border: 1px solid rgb(255, 255, 255);
+    background-color: bisque;
+    border-radius: 20px;
+    justify-content: center;
+    align-items: center;
+}
+.single_comment {
+    height: 46%;
+    text-align: center;
+}
+.review_heading{
+    font-family: "Montserrat", sans-serif;
+}
+.single_review button{
+    background-color: #494646;
+    color: white;
+    width: 70px;
+    height: 30px;
+    border: 1px solid white;
+    border-radius: 10px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    margin-right: 13px;
+}
+.single_review button:hover{
+    background-color: #222222;
 }

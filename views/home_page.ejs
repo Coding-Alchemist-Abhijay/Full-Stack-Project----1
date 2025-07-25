@@ -12,7 +12,8 @@
                     <img src="<%= user.image.url %>" alt="<%= user.image.filename %>">
                 </div>
                 <div class="title_div"><%= user.title %></div>
-                <div class="price_div">&#8377;<%= user.price.toLocaleString("en-IN") %> </div>
+                <div class="price_div">&#8377; <%= (user.price || 0).toLocaleString("en-IN") %>
+                </div>
             </div>
             </a>
         <% } %>

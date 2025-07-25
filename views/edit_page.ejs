@@ -1,41 +1,77 @@
 <% layout("/layouts/boilerplate") %>
 <body>
         <h1 class="edit_Listing">Edit your Listing</h1>
-        <form method="post" action="/Listings/<%= data._id %>?_method=PUT">
+        <form method="post" action="/Listings/<%= data._id %>?_method=PUT" novalidate class="needs-validation">
             <div class="form_div_2">
                 <div class="new_title_div">
                     <label for="title">Title:</label>
                     <br>
-                    <input type="text" id="title" name="title" required value="<%= data.title %>" class="title_box">
+                    <input type="text" class="form-control title_box" id="title" placeholder="enter title" required>
+                    <div class="valid-feedback">
+                        Looks good!
+                    </div>
+                    <div class="invalid-feedback">
+                        Please provide a title.
+                    </div>
                 </div>
                 <div class="new_description_div">
                     <label for="description">Description:</label>
                     <br>
-                    <textarea id="description" name="description" rows="5" cols="10" class="description_box"><%= data.description %></textarea>
+                    <textarea id="description" name="description" rows="5" cols="10" placeholder="Enter description" class="form-control description_box" required></textarea>
+                    <div class="valid-feedback">
+                        Looks good!
+                    </div>
+                    <div class="invalid-feedback">
+                        Please write description.
+                    </div>
                 </div>
                 <div class="new_image_div">
                     <label for="image">Image URL:</label>
                     <br>
-                    <input type="text" id="image" name="image[url]" value="<%= data.image.url %>" class="image_box">
+                    <input type="text" id="image" name="image[url]" placeholder="Enter image URL" class="form-control image_box" required>
+                    <div class="valid-feedback">
+                        Looks good!
+                    </div>
+                    <div class="invalid-feedback">
+                        Please provide a valid image url.
+                    </div>
                 </div>
                 <span>
                     <div class="new_price_div">
                         <label for="price">Price:</label>
                         <br>
-                        <input type="number" id="price" name="price" step="0.01" value="<%= data.price %>" class="price_box">
+                        <input type="number" id="price" name="price" step="0.01" placeholder="Enter price" class="form-control price_box" required>
+                        <div class="valid-feedback">
+                            Looks good!
+                        </div>
+                        <div class="invalid-feedback">
+                            Please provide a price.
+                        </div>
                     </div>
                     <div class="new_location_div">
                         <label for="location">Location:</label>
                         <br>
-                        <input type="text" id="location" name="location" value="<%= data.location %>" class="location_box">
+                        <input type="text" id="location" name="location" placeholder="Enter location" class="form-control location_box" required>
+                        <div class="valid-feedback">
+                            Looks good!
+                        </div>
+                        <div class="invalid-feedback">
+                            Please provide a location.
+                        </div>
                     </div>
                 </span>
                 <div class="new_country_div">
                     <label for="country">Country:</label>
                     <br>
-                    <input type="text" id="country" name="country" value="<%= data.country %>" class="country_box">
+                    <input type="text" id="country" name="country" placeholder="Enter country" class="form-control country_box" required>
+                    <div class="valid-feedback">
+                        Looks good!
+                    </div>
+                    <div class="invalid-feedback">
+                        Please provide a country.
+                    </div>
                 </div>
-                <button type="submit">Edit</button>
+                <button type="submit">Add</button>
             </div>
         </form>
     </div>
