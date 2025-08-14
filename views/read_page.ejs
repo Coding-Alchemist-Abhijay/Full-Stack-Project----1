@@ -24,7 +24,7 @@
     <hr>
     <div class="rating_div">
         <h1>Leave A Review</h1>
-        <form action="http://localhost:8080/Listings/<%=data.id%>/reviews" method="POST" novalidate class="needs-validation">
+        <form action="/Listings/<%= data._id %>/reviews" method="POST" novalidate class="needs-validation">
             <label for="rating" class="form-label" >Rating</label>
             <input id="rating" type="range" name="rating" min="1" max="5" class="form-control" required> 
             <div class="comment_div">
@@ -49,7 +49,7 @@
             <div class="single_rating">Rating : <%= info.rating %></div>
             <div class="single_comment">Comment : <%= info.comment %></div>
             <div class="single_date"><%= info.createdAt.toLocaleString('en-IN') %></div>
-            <form method = "POST" action="http://localhost:8080/Listings/<%=data.id%>/reviews/<%= info.id %>?_method=DELETE">
+            <form method = "POST" action="/Listings/<%= data._id %>/reviews/<%= info._id %>?_method=DELETE">
                 <button>Delete</button>
             </form>
         </div>

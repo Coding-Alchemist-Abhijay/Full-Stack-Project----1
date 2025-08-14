@@ -274,3 +274,68 @@ body{
 .single_review button:hover{
     background-color: #222222;
 }
+.SignUp_Heading {
+    padding-top: 50px;
+    font-family: "Montserrat", sans-serif;
+    font-weight: 700;
+    text-align: center;
+    padding-left: 17px;
+}
+.form_div_3 {
+    height: 400px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap : 20px;
+    font-family: "Montserrat", sans-serif;
+}
+.form_div_3 button {
+    background-color: #fe0000a6;
+    color: white;
+    width: 80px;
+    height: 35px;
+    border: 1px solid white;
+    border-radius: 10px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    margin-right: 13px;
+    font-family: "Montserrat", sans-serif;
+}
+
+.form_div_3 button:hover{
+    background-color: #ff0000;
+}
+
+.form_div_4 {
+    height: 350px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap : 30px;
+    font-family: "Montserrat", sans-serif;
+}
+
+.Login_Heading{
+    padding-top: 90px;
+    font-family: "Montserrat", sans-serif;
+    font-weight: 700;
+    text-align: center;
+    padding-left: 17px;
+}
+
+.form_div_4 button {
+    background-color: #252524b7;
+    color: white;
+    width: 80px;
+    height: 35px;
+    border: 1px solid white;
+    border-radius: 10px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    margin-right: 13px;
+    font-family: "Montserrat", sans-serif;
+}
+
+.form_div_4 button:hover{
+    background-color: #31302c;
+}

@@ -1,0 +1,31 @@
+<% layout("/layouts/boilerplate") %>
+<body>
+    <h1 class="Login_Heading">We Are Glad To Have You Back With Us!</h1>
+        <form method="POST" action="/login" novalidate class="needs-validation">
+            <div class="form_div_4">
+                <div class="new_title_div">
+                    <label for="title">Username</label>
+                    <br>
+                    <input type="text" class="form-control title_box" id="title" placeholder="enter username" name="username" required>
+                    <div class="valid-feedback">
+                        Looks good!
+                    </div>
+                    <div class="invalid-feedback">
+                        Please provide a valid username.
+                    </div>
+                </div>
+                <div class="new_image_div">
+                    <label for="image">Password:</label>
+                    <br>
+                    <input type="password" id="image" name="password" placeholder="Enter Password" class="form-control image_box" required>
+                    <div class="valid-feedback">
+                        Looks good!
+                    </div>
+                    <div class="invalid-feedback">
+                        Please provide password.
+                    </div>
+                </div>
+                <button type="submit">Submit</button>
+            </div>
+        </form>
+</body>

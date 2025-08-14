@@ -1,0 +1,36 @@
+<% layout("/layouts/boilerplate") %>
+<body>
+    <h1 class="SignUp_Heading">Welcome To WanderLust SignUp For Free ! </h1>
+        <form method="POST" action="/signup" novalidate class="needs-validation">
+            <div class="form_div_3">
+                <div class="new_title_div">
+                    <label for="title">Username</label>
+                    <br>
+                    <input type="text" class="form-control title_box" id="title" placeholder="enter username" name="Username" required>
+                    <div class="valid-feedback">
+                        Looks good!
+                    </div>
+                    <div class="invalid-feedback">
+                        Please provide a valid username.
+                    </div>
+                </div>
+                <div class="new_description_div">
+                    <label for="description">Email:</label>
+                    <br>
+                    <textarea id="description" name="Email" rows="5" cols="10" placeholder="Enter Email" class="form-control description_box" required></textarea>
+                    <div class="valid-feedback">
+                        Looks good!
+                    </div>
+                    <div class="invalid-feedback">
+                        Please provide a valid Email
+                    </div>
+                </div>
+                <div class="new_image_div">
+                    <label for="image">Password:</label>
+                    <br>
+                    <input type="password" id="image" name="Password" placeholder="Enter Password" class="form-control image_box">
+                </div>
+                <button type="submit">Submit</button>
+            </div>
+        </form>
+</body>

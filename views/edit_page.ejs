@@ -6,7 +6,7 @@
                 <div class="new_title_div">
                     <label for="title">Title:</label>
                     <br>
-                    <input type="text" class="form-control title_box" id="title" placeholder="enter title" required>
+                    <input type="text" class="form-control title_box" id="title" value="<%= data.title %>" name="title" https://github.com/akhilkammila/leetcode-screenshotterrequired>
                     <div class="valid-feedback">
                         Looks good!
                     </div>
@@ -17,7 +17,7 @@
                 <div class="new_description_div">
                     <label for="description">Description:</label>
                     <br>
-                    <textarea id="description" name="description" rows="5" cols="10" placeholder="Enter description" class="form-control description_box" required></textarea>
+                    <textarea id="description" name="description" rows="5" cols="10" class="form-control description_box" required><%= data.description %></textarea>
                     <div class="valid-feedback">
                         Looks good!
                     </div>
@@ -28,7 +28,7 @@
                 <div class="new_image_div">
                     <label for="image">Image URL:</label>
                     <br>
-                    <input type="text" id="image" name="image[url]" placeholder="Enter image URL" class="form-control image_box" required>
+                    <input type="text" id="image" name="image[url]" value="<%= data.image.url %>" class="form-control image_box" required>
                     <div class="valid-feedback">
                         Looks good!
                     </div>
@@ -40,7 +40,7 @@
                     <div class="new_price_div">
                         <label for="price">Price:</label>
                         <br>
-                        <input type="number" id="price" name="price" step="0.01" placeholder="Enter price" class="form-control price_box" required>
+                        <input type="number" id="price" name="price" step="0.01" value="<%= data.price %>" class="form-control price_box" required>
                         <div class="valid-feedback">
                             Looks good!
                         </div>
@@ -51,7 +51,7 @@
                     <div class="new_location_div">
                         <label for="location">Location:</label>
                         <br>
-                        <input type="text" id="location" name="location" placeholder="Enter location" class="form-control location_box" required>
+                        <input type="text" id="location" name="location" value="<%= data.location %>" class="form-control location_box" required>
                         <div class="valid-feedback">
                             Looks good!
                         </div>
@@ -63,7 +63,7 @@
                 <div class="new_country_div">
                     <label for="country">Country:</label>
                     <br>
-                    <input type="text" id="country" name="country" placeholder="Enter country" class="form-control country_box" required>
+                    <input type="text" id="country" name="country" value="<%= data.country %>" class="form-control country_box" required>
                     <div class="valid-feedback">
                         Looks good!
                     </div>
