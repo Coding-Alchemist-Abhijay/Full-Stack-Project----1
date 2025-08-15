@@ -6,22 +6,26 @@
     <div class="show_image_div">
         <img src="<%= data.image.url %>" alt="<%= data.title %>">
     </div>
+    <p>Owned By : <i><%= data.owner.username %></i></p>
     <div class="show_price_div">Price: $ <%= (data.price || 0).toLocaleString("en-IN") %>
     </div>
     <div class="show_location_div">Location: <%= data.location %></div>
     <div class="show_country_div">Country: <%= data.country %></div>
     <div class="show_edit_div">
     </div>
-    <span>
-        <a href="/Listings/<%= data._id %>/edit">
-            <button type="submit" class="edit_button">Edit</button>
-        </a>
-       <form method="POST" action="/Listings/<%= data._id %>?_method=DELETE">
-        <button type="submit">Delete</button>
-        </form>
-    </span>
+    <% if(currUser && currUser._id.equals(data.owner._id)) { %>
+        <span>
+            <a href="/Listings/<%= data._id %>/edit">
+                <button type="submit" class="edit_button">Edit</button>
+            </a>
+           <form method="POST" action="/Listings/<%= data._id %>?_method=DELETE">
+            <button type="submit">Delete</button>
+            </form>
+        </span>
+    <% } %>
     </div>
     <hr>
+    <% if(currUser)  { %>
     <div class="rating_div">
         <h1>Leave A Review</h1>
         <form action="/Listings/<%= data._id %>/reviews" method="POST" novalidate class="needs-validation">
@@ -40,18 +44,22 @@
             <button class="btn btn-primary mb-3">Submit</button>
         </form>
     </div>
+<% } %>
     <hr>
     <h1 class="review_heading">Popular Reviews</h1>
     <br>
     <div class="reviews_div">
       <% for(let info of data.reviews){ %> 
         <div class="single_review">
+            <div class="p">Review By : @<i><%= info.author.username %></i></div>
             <div class="single_rating">Rating : <%= info.rating %></div>
             <div class="single_comment">Comment : <%= info.comment %></div>
             <div class="single_date"><%= info.createdAt.toLocaleString('en-IN') %></div>
+            <% if(currUser && currUser._id.equals(info.author._id)) { %>
             <form method = "POST" action="/Listings/<%= data._id %>/reviews/<%= info._id %>?_method=DELETE">
                 <button>Delete</button>
             </form>
+            <% } %>
         </div>
       <% } %>
     </div>

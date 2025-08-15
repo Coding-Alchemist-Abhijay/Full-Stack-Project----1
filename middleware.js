@@ -1,6 +1,15 @@
-module.exports = loggedIn = (req, res, next) => {
+const Listing = require('./models/listings.js');
+const Review = require('./models/review.js');
+module.exports.loggedIn = (req, res, next) => {
     if(!req.isAuthenticated()) {
-        req.session.redirectUrl = req.originalUrl; // saves the last url before logging in.
+        // Save only safe GET URLs. For non-GET (e.g., POST /reviews), redirect to the listing page or home.
+        if (req.method === 'GET') {
+            req.session.redirectUrl = req.originalUrl;
+        } else if (req.params && req.params.id) {
+            req.session.redirectUrl = `/Listings/${req.params.id}`;
+        } else {
+            req.session.redirectUrl = '/Listings';
+        }
         req.flash("error", "You must be logged in!");
         return res.redirect("/login");
     }
@@ -15,3 +24,35 @@ const saveRedirectUrl = (req, res, next) => {
 };
 
 module.exports.saveRedirectUrl = saveRedirectUrl;
+
+const isOwner = async (req, res, next) => {
+    const { id } = req.params;
+    const listing = await Listing.findById(id);
+    if (!listing) {
+        req.flash("error", "Listing does not exist");
+        return res.redirect("/Listings");
+    }
+    if (!req.user || !listing.owner.equals(req.user._id)) {
+        req.flash("error", "You do not have permission to do that!");
+        return res.redirect(`/Listings/${id}`);
+    }
+    next();
+};
+
+module.exports.isOwner = isOwner;
+
+const isReviewOwner = async (req, res, next) => {
+    const { id, reviewId } = req.params;
+    const review = await Review.findById(reviewId);
+    if (!review) {
+        req.flash("error", "Review does not exist");
+        return res.redirect(`/Listings/${id}`);
+    }
+    if (!req.user || !review.author.equals(req.user._id)) {
+        req.flash("error", "You do not have permission to do that!");
+        return res.redirect(`/Listings/${id}`);
+    }
+    next();
+};
+
+module.exports.isReviewOwner = isReviewOwner;
