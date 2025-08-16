@@ -166,7 +166,7 @@ body{
     color: white;
     margin-top: 20px;
 }
-.new_title_div label, .new_description_div label, .new_image_div label, .new_price_div image, .new_location_div label, .new_country_div label{
+.new_title_div label, .new_description_div label, .new_image_div label, .new_price_div label, .new_location_div label, .new_country_div label{
     font-family: "Montserrat", sans-serif;
     font-weight: 600;
 }
@@ -247,7 +247,7 @@ body{
     width: 340px;
     display: flex;
     flex-direction: column;
-    gap:10px;
+    gap:5px;
     border: 1px solid rgb(255, 255, 255);
     background-color: bisque;
     border-radius: 20px;

@@ -1,8 +1,8 @@
 <% layout("/layouts/boilerplate") %>
 <body>
     <h1 class="new_Listing">Create a new Listing</h1>
-        <form method="post" action="/Listings" novalidate class="needs-validation">
-            <div class="form_div_1">
+        <form method="post" action="/Listings" novalidate class="needs-validation" enctype="multipart/form-data">
+            <div class="form_div_1"> 
                 <div class="new_title_div">
                     <label for="title">Title:</label>
                     <br>
@@ -26,9 +26,9 @@
                     </div>
                 </div>
                 <div class="new_image_div">
-                    <label for="image">Image URL:</label>
+                    <label for="image">Image:</label>
                     <br>
-                    <input type="text" id="image" name="image[url]" placeholder="Enter image URL" class="form-control image_box">
+                    <input type="file" id="image" name="listing[image]" class="form-control image_box">
                 </div>
                 <span>
                     <div class="new_price_div">

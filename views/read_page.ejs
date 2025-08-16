@@ -29,8 +29,20 @@
     <div class="rating_div">
         <h1>Leave A Review</h1>
         <form action="/Listings/<%= data._id %>/reviews" method="POST" novalidate class="needs-validation">
-            <label for="rating" class="form-label" >Rating</label>
-            <input id="rating" type="range" name="rating" min="1" max="5" class="form-control" required> 
+            <fieldset class="starability-slot">
+                <legend class="rating">Rating : </legend>
+                <input type="radio" id="no-rate" class="input-no-rate" name="rating" value="0" checked aria-label="No rating." />
+                <input type="radio" id="first-rate1" name="rating" value=1 />
+                <label for="first-rate1" title="Terrible">1 star</label>
+                <input type="radio" id="first-rate2" name="rating" value=2 />
+                <label for="first-rate2" title="Not good">2 stars</label>
+                <input type="radio" id="first-rate3" name="rating" value=3 />
+                <label for="first-rate3" title="Average">3 stars</label>
+                <input type="radio" id="first-rate4" name="rating" value=4 />
+                <label for="first-rate4" title="Very good">4 stars</label>
+                <input type="radio" id="first-rate5" name="rating" value=5 />
+                <label for="first-rate5" title="Amazing">5 stars</label>
+              </fieldset>
             <div class="comment_div">
                 <label for="comment" class="form-label" >Comments</label>
                 <textarea name="comment" id="comment" rows="5" cols="5" class="form-control" required></textarea>
@@ -52,7 +64,8 @@
       <% for(let info of data.reviews){ %> 
         <div class="single_review">
             <div class="p">Review By : @<i><%= info.author.username %></i></div>
-            <div class="single_rating">Rating : <%= info.rating %></div>
+            <p class="starability-result" data-rating="<%= info.rating %>">
+              </p>
             <div class="single_comment">Comment : <%= info.comment %></div>
             <div class="single_date"><%= info.createdAt.toLocaleString('en-IN') %></div>
             <% if(currUser && currUser._id.equals(info.author._id)) { %>

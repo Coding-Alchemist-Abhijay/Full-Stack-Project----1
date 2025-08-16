@@ -2,14 +2,6 @@ const Listing = require('./models/listings.js');
 const Review = require('./models/review.js');
 module.exports.loggedIn = (req, res, next) => {
     if(!req.isAuthenticated()) {
-        // Save only safe GET URLs. For non-GET (e.g., POST /reviews), redirect to the listing page or home.
-        if (req.method === 'GET') {
-            req.session.redirectUrl = req.originalUrl;
-        } else if (req.params && req.params.id) {
-            req.session.redirectUrl = `/Listings/${req.params.id}`;
-        } else {
-            req.session.redirectUrl = '/Listings';
-        }
         req.flash("error", "You must be logged in!");
         return res.redirect("/login");
     }

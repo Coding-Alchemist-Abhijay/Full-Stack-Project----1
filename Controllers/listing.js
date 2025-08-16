@@ -28,6 +28,15 @@ module.exports.show = async (req, res) => {
 // Create a new listing
 module.exports.create = async (req, res) => {
     let n_data = req.body;
+    
+    // Handle uploaded file
+    if (req.file) {
+        n_data.image = {
+            filename: req.file.filename,
+            url: req.file.path
+        };
+    }
+    
     const new_data = new Listing(n_data);
     new_data.owner = req.user._id;
     await new_data.save();
