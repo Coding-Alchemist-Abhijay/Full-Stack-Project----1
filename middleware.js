@@ -2,6 +2,7 @@ const Listing = require('./models/listings.js');
 const Review = require('./models/review.js');
 module.exports.loggedIn = (req, res, next) => {
     if(!req.isAuthenticated()) {
+        req.session.redirectUrl = req.originalUrl;
         req.flash("error", "You must be logged in!");
         return res.redirect("/login");
     }
