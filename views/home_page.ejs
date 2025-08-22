@@ -1,9 +1,62 @@
 <% layout("/layouts/boilerplate") %>
 <body>
-    <h1>All Listings</h1>
     <!-- <form action="http://localhost:8080/Listings/new">
         <button>Create New Listing</button>
     </form> -->
+    <div class="top_div">
+        <div class="icon_div">
+            <div class="icon_item">
+                <div class="icon"><i class="fa-solid fa-house"></i></div>
+                <div class="icon_text">House</div>
+            </div>
+            <div class="icon_item">
+                <div class="icon"><i class="fa-solid fa-mountain"></i></div>
+                <div class="icon_text">Mountain</div>
+            </div>
+            <div class="icon_item">
+                <div class="icon"><i class="fa-solid fa-water"></i></div>
+                <div class="icon_text">Lake</div>
+            </div>
+            <div class="icon_item">
+                <div class="icon"><i class="fa-solid fa-umbrella-beach"></i></div>
+                <div class="icon_text">Beach</div>
+            </div>
+            <div class="icon_item">
+                <div class="icon"><i class="fa-solid fa-city"></i></div>
+                <div class="icon_text">City</div>
+            </div>
+            <div class="icon_item">
+                <div class="icon"><i class="fa-solid fa-tree"></i></div>
+                <div class="icon_text">Forest</div>
+            </div>
+            <div class="icon_item">
+                <div class="icon"><i class="fa-solid fa-campground"></i></div>
+                <div class="icon_text">Camp</div>
+            </div>
+            <div class="icon_item">
+                <div class="icon"><i class="fa-solid fa-snowflake"></i></div>
+                <div class="icon_text">Snow</div>
+            </div>
+            <div class="icon_item">
+                <div class="icon"><i class="fa-solid fa-fire"></i></div>
+                <div class="icon_text">Fireplace</div>
+            </div>
+            <div class="icon_item">
+                <div class="icon"><i class="fa-solid fa-swimmer"></i></div>
+                <div class="icon_text">Pool</div>
+            </div>
+            <div class="icon_item">
+                <div class="icon"><i class="fa-solid fa-dog"></i></div>
+                <div class="icon_text">Pet Friendly</div>
+            </div>
+            </div>
+            <div class="checkbox_div">
+                <div class="form-check form-switch form-check-reverse">
+                    <input class="form-check-input" type="checkbox" id="switchCheckReverse">
+                    <label class="form-check-label" for="switchCheckReverse">Display total after taxes</label>
+                </div>
+            </div>
+    </div>
     <div class="card_div">
         <% for(let user of data) { %>
             <a class=card_anchor href="/Listings/<%= user._id %>">
@@ -12,10 +65,69 @@
                     <img src="<%= user.image.url %>" alt="<%= user.image.filename %>">
                 </div>
                 <div class="title_div"><%= user.title %></div>
-                <div class="price_div">&#8377; <%= (user.price || 0).toLocaleString("en-IN") %>
+                <div class="price_div">&#8377; <%= (user.price || 0).toLocaleString("en-IN") %>&nbsp;&nbsp;<i></i>
                 </div>
             </div>
             </a>
         <% } %>
     </div>
+    <script>
+        let card_div = document.querySelector(".card_div");
+        function mk(data) {
+            let html = "";
+            data.forEach(user => {
+                html += `
+                <a class="card_anchor" href="/Listings/${user._id}">
+                    <div class="each_card">
+                        <div class="img_div">
+                            <img src="${user.image.url}" alt="${user.image.filename}">
+                        </div>
+                        <div class="title_div">${user.title}</div>
+                        <div class="price_div">&#8377; ${(user.price || 0).toLocaleString("en-IN")}&nbsp;&nbsp;<i></i></div>
+                    </div>
+                </a>
+                `;
+            });
+            card_div.innerHTML = html;
+        }
+    let checkbox = document.querySelector(".form-check-input");
+    let search_button = document.querySelector(".container-fluid button")
+    // Pass data as a JS variable safely
+    const data = <%- JSON.stringify(data) %>
+    console.log(data);
+    
+    let search_box = document.querySelector(".form-control");
+    search_box.addEventListener("input", function(event) {
+    let query = event.target.value.trim();
+    if (!query) {
+        mk(data); // If search box is empty, show all listings
+        return;
+    }
+
+    const regexStart = new RegExp("^" + query, "i");   // matches at start
+    const regexAnywhere = new RegExp(query, "i");      // matches anywhere
+
+    const filteredData = data.filter(user => 
+        regexStart.test(user.title) || regexAnywhere.test(user.title)
+    );
+
+    mk(filteredData);
+});
+
+
+    // Get all GST <i> elements inside .price_div
+    checkbox.addEventListener("click", function() {
+        // Get all GST <i> elements inside .price_div
+        let gstElements = document.querySelectorAll(".price_div i");
+        if (checkbox.checked) {
+            gstElements.forEach(function(el) {
+                el.innerHTML = '+18% GST';
+            });
+        } else {
+            gstElements.forEach(function(el) {
+                el.textContent = "";
+            });
+        }
+    });
+    </script>
 </body>

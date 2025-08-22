@@ -6,16 +6,24 @@
       </button>
       <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
         <div class="navbar-nav">
-          <a class="nav-link" aria-current="page" href="/">Home</a>
-          <a class="nav-link" href="/Listings">All Listings</a>
-          <a class="nav-link" href="/Listings/new">Add new Listing</a>
+          <a class="nav-link" href="/Listings">Explore</a>
         </div>
       </div>
+      <nav class="navbar bg-body-tertiary" style="margin-left: 103px; border-radius: 60px;" >
+        <div class="container-fluid">
+          <p class="search_title">Search Destinations</p>
+          <form class="d-flex" role="search">
+            <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" name="search_query" />
+            <button type="button" class="btn btn-outline-success" type="submit">Search</button>
+          </form>
+        </div>
+      </nav>
       <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
         <div class="navbar-nav ms-auto">
+          <a class="nav-link" href="/Listings/new">Airbnb Your Home</a>
           <% if(!currUser) { %>
-            <a class="nav-link" aria-current="page" href="/signup">Sign Up</a>
-            <a class="nav-link" href="/login">Login</a>
+            <a class="nav-link" aria-current="page" href="/signup"><b>Sign Up</b></a>
+            <a class="nav-link" href="/login"><b>Login</b></a>
           <% } %>
           <% if(currUser) { %>
             <a class="nav-link" href="/logout">Logout</a>

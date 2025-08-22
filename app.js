@@ -68,9 +68,6 @@ async function main() {
 app.use("/Listings", listingRoutes);
 app.use("/Listings/:id/reviews", reviewRoute);
 app.use("/", userRoute);
-app.get("/", (req, res) => {
-    res.send("Welcome to the Listings App!");
-});
 
 // when request to route that does not exist is called then this executed
 app.get((req, res, next) => {
