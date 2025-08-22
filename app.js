@@ -83,6 +83,10 @@ app.use("/Listings/:id/reviews", reviewRoute);
 app.use("/", userRoute);
 
 // when request to route that does not exist is called then this executed
+app.get("/", (req, res) => {
+    res.redirect("/Listings");
+});
+
 app.get((req, res, next) => {
     next(new ExpressError(404, 'Page Not Found'));
 });
