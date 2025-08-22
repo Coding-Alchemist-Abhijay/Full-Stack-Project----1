@@ -10,12 +10,13 @@ const ejsMate = require('ejs-mate');
 const listingRoutes = require('./routes/listing.js');
 const reviewRoute = require("./routes/reviews.js");
 const userRoute = require("./routes/User.js");
-const expressSession = require('express-session');
+const session = require('express-session');
 const flash = require('connect-flash');
 const passport = require('passport');
 const LocalStrategy = require('passport-local');
 const User = require('./models/user.js');
 const ExpressError = require('./utils/CustomError.js');
+const MongoStore = require('connect-mongo');
 
 app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, 'views'));
@@ -25,7 +26,29 @@ app.use(methodOverride('_method'));
 app.engine('ejs', ejsMate);
 app.use(express.static(path.join(__dirname, 'public')));
 
+const dburl = process.env.DB_URL;
+
+main()
+.then(() => {
+    console.log("connection successful");
+})
+.catch((err) => 
+    console.log(err));
+
+async function main() {
+    await mongoose.connect(dburl);
+}
+  
+const store = MongoStore.create({
+    mongoUrl: dburl,
+    crypto:{
+        secret : "mysecretcode",
+    },
+    touchAfter: 24*3600,
+})
+
 let sessionOptions = {
+    store : store,
     secret: "thisisasecret",
     resave: false,
     saveUninitialized: true,
@@ -36,7 +59,8 @@ let sessionOptions = {
     } // info stored of user for 7 days.
 }
 
-app.use(expressSession(sessionOptions));
+app.use(session(sessionOptions));
+
 app.use(flash()); // make sure to use app.use session and flash above the routes.
 
 app.use(passport.initialize());
@@ -52,19 +76,8 @@ app.use((req, res, next) => {
     next();
 });
 
-const MONGO_URL = "mongodb://127.0.0.1:27017/Wanderlust";
 
-main()
-.then(() => {
-    console.log("connection successful");
-})
-.catch((err) => 
-    console.log(err));
 
-async function main() {
-    await mongoose.connect(MONGO_URL);
-}
-  
 app.use("/Listings", listingRoutes);
 app.use("/Listings/:id/reviews", reviewRoute);
 app.use("/", userRoute);
